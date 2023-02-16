@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
   </head>
   <body>
-    <div class="container">
 
+    
+    <div class="container">
       <h2 class="display-5 fw-bold">TASK</h2>
 
-      <form action="{% url 'createTask' %}" method="POST" class="card card-body">
+      <form action="{% url 'createTask' %}" method="POST" class="card card-body col-4 bg-secondary">
         {% csrf_token %}
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Title:</label>
@@ -29,7 +30,7 @@
       </form>
 
       {% for task in tasks %}
-        <div class="card card-body text-black mt-2">
+        <div class="card card-body text-black mt-2 col-12 bg-primary text-white">
           <h4>{{task.titulo}}</h4>
           <p>{{task.descripcion}}</p>
           <form action="{% url 'deleteTask' task.id %}" method="POST">
